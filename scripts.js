@@ -22,14 +22,22 @@ function flipCard() {
 function checkMatch() {
     // match the cards
     if(firstCard.dataset.framework === secondCard.dataset.framework) {
-        firstCard.removeEventListener("click", flipCard);
-        secondCard.removeEventListener("click", flipCard);
+        disabledCards()
     } else {
-        setTimeout(() => {
-            firstCard.classList.remove('flip')
-            secondCard.classList.remove('flip')
-        }, 1500)
+       unflipCards()
     }
+}
+
+function disabledCards() {
+    firstCard.removeEventListener("click", flipCard);
+    secondCard.removeEventListener("click", flipCard);
+}
+
+function unflipCards() {
+    setTimeout(() => {
+        firstCard.classList.remove('flip')
+        secondCard.classList.remove('flip')
+    }, 1500)
 }
 
 cards.forEach(card => card.addEventListener('click', flipCard));
