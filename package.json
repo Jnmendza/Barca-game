@@ -1,6 +1,9 @@
 {
   "name": "barca-game",
   "version": "1.0.0",
+  "engines": {
+    "node": "10.16.x"
+  },
   "description": "",
   "main": "scripts.js",
   "dependencies": {},
