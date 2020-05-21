@@ -1,12 +1,22 @@
 {
-  "dependencies": {
-    "netlify-cli": "^2.51.0",
-    "update-check": "^1.5.4"
-  },
+  "name": "barca-game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scripts.js",
+  "dependencies": {},
+  "devDependencies": {},
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src -d lib"
   },
-  "devDependencies": {
-    "babel-cli": "^6.26.0"
-  }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jnmendza/Barca-game.git"
+  },
+  "author": "Jonathan Mendoza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jnmendza/Barca-game/issues"
+  },
+  "homepage": "https://github.com/Jnmendza/Barca-game#readme"
 }
