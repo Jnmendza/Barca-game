@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "netlify-cli": "^2.51.0",
+    "update-check": "^1.5.4"
+  }
+}
