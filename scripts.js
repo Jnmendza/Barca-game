@@ -1,3 +1,4 @@
+const PORT = process.env.PORT || 5000;
 const cards = document.querySelectorAll('.barca-card');
 
 let hasFlipped = false;
