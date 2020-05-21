@@ -2,5 +2,11 @@
   "dependencies": {
     "netlify-cli": "^2.51.0",
     "update-check": "^1.5.4"
+  },
+  "scripts": {
+    "build": "babel src -d lib"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0"
   }
 }
