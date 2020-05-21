@@ -1,31 +1,33 @@
 const cards = document.querySelectorAll('.barca-card');
 
 let hasFlipped = false;
+let lockBoard = false;
 let firstCard, secondCard;
 
 function flipCard() {
+    if(lockBoard) return;
+    
+
     this.classList.add('flip');
 
     if(!hasFlipped) {
         // first click
         hasFlipped = true
         firstCard = this;
-    } else {
-        // second click
-        hasFlipped = false;
-        secondCard = this;   
 
-        checkMatch()
+        return;
     }
+    // second click
+    hasFlipped = false;
+    secondCard = this;   
+
+    checkMatch()
 }
 
 function checkMatch() {
     // match the cards
-    if(firstCard.dataset.framework === secondCard.dataset.framework) {
-        disabledCards()
-    } else {
-       unflipCards()
-    }
+    const isMatch = firstCard.dataset.framework === secondCard.dataset.framework
+    isMatch ? disabledCards() : unflipCards()
 }
 
 function disabledCards() {
@@ -34,9 +36,12 @@ function disabledCards() {
 }
 
 function unflipCards() {
+    lockBoard = true
+
     setTimeout(() => {
         firstCard.classList.remove('flip')
         secondCard.classList.remove('flip')
+        lockBoard = false
     }, 1500)
 }
 
