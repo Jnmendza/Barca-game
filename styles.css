@@ -14,11 +14,12 @@ body{
     height: 100vh;
     background-image: url('./img/background.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
 }
 .game-container {
     width: 50%;
-    margin: auto 10px;
+    margin: auto 25px;
 }
 .barca-game{
     width: 800px;
@@ -27,7 +28,7 @@ body{
     flex-wrap: wrap;
     margin: auto;
     perspective: 1000px;
-    /* border: 1px solid white; */
+    border: 1px solid white;
     padding: 10px;
     background-color: rgba(21, 24, 35, 0.7);
     box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 0);
@@ -69,20 +70,19 @@ body{
 
 
 .messi-container {
-    position: relative;
+    /* position: relative; */
     width: 100%;
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
     color: white;
     transform-style: preserve-3d;
 }
 
+
 .messi-container .box {
-    position: relative;
     width: 450px;
-    height: 80%;
+    height: 0%;
     margin: 60px 0;
     /* background: #000; */
     /* background: #000; */
@@ -93,22 +93,20 @@ body{
 .messi-container .box .imageBx {
     position: absolute;
     top: 0;
-    left: 100;
-    right: 80px;
-    width: 100%;
-    height: 100%;
+    left: 0;
+    right: 40;
 }
 
 .messi-container .box .imageBx img {
     -webkit-filter: drop-shadow(-10px -10px 20px #222);
+    height: 80vh;
 }
 
 .messi-container .box .nameBox {
     position: absolute;
-    bottom: 60px;
+    top: 100px;
     left: 0px;
     right: 5px;
-    padding: 10px 20px;
     transform-style: preserve-3d;
     font-size: xx-large;
 }
@@ -129,7 +127,7 @@ body{
 }
 .reset-btn {
     width: 50%;
-    margin: 25px auto;    
+    margin: 25px 0;    
 }
 
 button {
@@ -137,4 +135,29 @@ button {
     width: 100%;
     height: 30px;
     font-weight: bold;
+}
+
+@media(max-width: 1400px) {
+    #messi{
+        /* display: none; */
+    }
+    #messi .box {
+        width: 10px;
+    }
+    #game {
+        margin: auto;
+    }
+}
+
+@media(max-width: 1100px) {
+    #messi{
+        display: none;
+    }  
+}
+
+@media(max-width: 900px) {
+    .game-container .barca-game {
+        height: 75vh;
+        width: 75vh;
+    }
 }
