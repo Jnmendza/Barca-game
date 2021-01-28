@@ -56,7 +56,7 @@ h1 {
 
 .barca-card:hover {
     transform: scale(.97);
-    transition: transform .2s;
+    transition: transform .5s;
 }
 
 .barca-card.flip {
@@ -88,4 +88,11 @@ button {
     padding: 25px 50px;
     font-weight: bold;
     font-size: 1.3rem;
+    cursor: pointer;
+    transition: transform .5s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    transition: transform .5s;
 }
