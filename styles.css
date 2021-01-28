@@ -7,19 +7,26 @@
     vs the inside.
     */
     box-sizing: border-box;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Bebas Neue', cursive;
 }
 
 body{
     height: 100vh;
     background-image: url('./img/background.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
+    /* background-size: cover; */
+    /* background-repeat: no-repeat; */
     display: flex;
 }
+
+h1 {
+    font-size: 3rem;
+    text-align: center;
+    color: ghostwhite;
+}
 .game-container {
-    width: 50%;
-    margin: auto 25px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
 }
 .barca-game{
     width: 800px;
@@ -36,6 +43,7 @@ body{
 
 
 .barca-card {
+    /* including the 10 pixels on each side given by the margin */
     width: calc(25% - 10px);
     height: calc(33.333% - 10px);
     position: relative;
@@ -43,15 +51,17 @@ body{
     transform: scale(1);
     transform-style: preserve-3d;
     transition: transform .5s;
+    cursor: pointer;
 }
 
-.barca-card:active {
+.barca-card:hover {
     transform: scale(.97);
     transition: transform .2s;
 }
 
 .barca-card.flip {
     transform: rotateY(180deg);
+    cursor: auto;
 }
 
 .front-side,
@@ -68,96 +78,14 @@ body{
     transform: rotateY(180deg)
 }
 
-
-.messi-container {
-    /* position: relative; */
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    color: white;
-    transform-style: preserve-3d;
-}
-
-
-.messi-container .box {
-    width: 450px;
-    height: 0%;
-    margin: 60px 0;
-    /* background: #000; */
-    /* background: #000; */
-    transform-style: preserve-3d;
-}
-
-
-.messi-container .box .imageBx {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 40;
-}
-
-.messi-container .box .imageBx img {
-    -webkit-filter: drop-shadow(-10px -10px 20px #222);
-    height: 80vh;
-}
-
-.messi-container .box .nameBox {
-    position: absolute;
-    top: 100px;
-    left: 0px;
-    right: 5px;
-    transform-style: preserve-3d;
-    font-size: xx-large;
-}
-
-.messi-container .box .nameBox h1 {
-    text-shadow: 0 1px 0 #ccc,
-               0 2px 0 #c9c9c9,
-               0 3px 0 #bbb,
-               0 4px 0 #b9b9b9,
-               0 5px 0 #aaa,
-               0 6px 1px rgba(0,0,0,.1),
-               0 0 5px rgba(0,0,0,.1),
-               0 1px 3px rgba(0,0,0,.3),
-               0 3px 5px rgba(0,0,0,.2),
-               0 5px 10px rgba(0,0,0,.25),
-               0 10px 10px rgba(0,0,0,.2),
-               0 20px 20px rgba(0,0,0,.15);
-}
 .reset-btn {
-    width: 50%;
-    margin: 25px 0;    
+    margin: auto;    
 }
 
 button {
     background-color: #FFED02;
-    width: 100%;
-    height: 30px;
+    margin-top: 25px;
+    padding: 25px 50px;
     font-weight: bold;
-}
-
-@media(max-width: 1400px) {
-    #messi{
-        /* display: none; */
-    }
-    #messi .box {
-        width: 10px;
-    }
-    #game {
-        margin: auto;
-    }
-}
-
-@media(max-width: 1100px) {
-    #messi{
-        display: none;
-    }  
-}
-
-@media(max-width: 900px) {
-    .game-container .barca-game {
-        height: 75vh;
-        width: 75vh;
-    }
+    font-size: 1.3rem;
 }
