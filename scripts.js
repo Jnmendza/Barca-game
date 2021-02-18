@@ -1,5 +1,4 @@
-// const PORT = process.env.PORT || 5000;
-const cards = document.querySelectorAll('.barca-card');
+import {barcaPlayers} from './data.js';
 
 // helps keep track of the first and second card
 let hasFlipped = false;
@@ -71,15 +70,65 @@ function resetBoard() {
     [firstCard, secondCard] = [null, null]
 }
 
-// Shuffle the order of the barca cards
-(function shuffle() {
+
+// Creates and returns a array of divs with two img tags in each div
+function barcaCards (players) {
+    const newDivs = [];
+
+    players.forEach(player => {
+        const createDiv = () => {
+            const div = document.createElement('div');
+            div.classList.add('barca-card');
+            div.setAttribute('data-player', `${player.name}`);
+            div.addEventListener('click', flipCard)
+            
+            // Image tag for player
+            const playerImgTag = document.createElement('img');
+            playerImgTag.classList.add('front-side');
+            playerImgTag.setAttribute('src', player.playerImg)
+            playerImgTag.setAttribute('alt', player.name)
+            div.appendChild(playerImgTag)
+
+            // Image tag for the crest
+            const crestImgTag = document.createElement('img');
+            crestImgTag.classList.add('back-side');
+            crestImgTag.setAttribute('src', player.crestImg);
+            crestImgTag.setAttribute('alt', 'Barca-logo');
+            div.appendChild(crestImgTag)
+            
+            newDivs.push(div)
+        }
+        createDiv();
+        createDiv();
+    })
+    return newDivs
+}
+
+// set the order to a random # between 0 - the amount of cards
+function shuffle(cards) {
+    const numOfCards = cards.length;
     cards.forEach(card => {
-        // save random number in a variable
-        const randomPos = Math.floor(Math.random() *12);
-        // order property allows u to set order of elements
+        const randomPos = Math.floor(Math.random() * numOfCards);
         card.style.order = randomPos
     })
+}
+
+// As soon as the page refreshes the startGame function is execute with the function in the first set of parenthesis
+// and the second empty set executes it on its own
+
+const gameSection = document.getElementById('game'); // save the <section> in a variable and append to it
+(function startGame() {
+    // when executing the barcaCards function you get an array of divs
+    const arrOfDivs = barcaCards(barcaPlayers);
+    // map thru every div and append it to the <section> 
+    arrOfDivs.map(div => gameSection.appendChild(div));
+
+    shuffle(arrOfDivs);
+
 })()
 
 // whenever clicked run the 'flipCard' function to begin/continue the game
-cards.forEach(card => card.addEventListener('click', flipCard));
+const cards = barcaCards(barcaPlayers);
+cards.forEach(card => {
+    card.addEventListener('click', flipCard)
+});
