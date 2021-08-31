@@ -4,7 +4,7 @@ import {barcaPlayers} from './data.js';
 let hasFlipped = false;
 // locks the board after the second card has been clicked on
 let lockBoard = false;
-// variables set to null 
+// variables defined
 let firstCard, secondCard;
 
 function flipCard() {
